@@ -167,6 +167,8 @@ class PlayState extends MusicBeatState
 
 	var botplaySine:Float = 0;
 	var botplayTxt:FlxText;
+    //fuck boi events
+	public static var scrollSpeed:Float;
 
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
@@ -311,7 +313,17 @@ class PlayState extends MusicBeatState
 
 		switch (SONG.song.toLowerCase())
 		{
-			case 'stress': 
+			case 'sunny' | 'snowy' | 'thunder': 
+                                                defaultCamZoom = 0.7;
+						curStage = 'japan';
+						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('japan', 'raiback'));
+						bg.antialiasing = true;
+						bg.scrollFactor.set(0.9, 0.9);
+						bg.active = false;
+						add(bg);  
+
+
+                       case 'stress': 
 					{
 					curStage = 'tankStage2';
 					defaultCamZoom = 0.9;
@@ -931,7 +943,16 @@ class PlayState extends MusicBeatState
 		gf.x += gf.positionArray[0];
 		gf.y += gf.positionArray[1];
 		gf.scrollFactor.set(0.95, 0.95);
-		gfGroup.add(gf);
+		if (curStage == 'japan')
+                {
+                gfGroup.add(gf); 
+                gfGroup.visible = false;
+                gf.visible = false; 
+                }
+                else
+                {
+                gfGroup.add(gf);
+                } 
 
 		dad = new Character(DAD_X, DAD_Y, SONG.player2);
 		dad.x += dad.positionArray[0];
@@ -1023,6 +1044,8 @@ class PlayState extends MusicBeatState
 		timeBarBG.visible = !ClientPrefs.hideHud;
 		timeBarBG.color = FlxColor.BLACK;
 		add(timeBarBG);
+             
+
 
 		timeBar = new FlxBar(timeBarBG.x + 4, timeBarBG.y + 4, LEFT_TO_RIGHT, Std.int(timeBarBG.width - 8), Std.int(timeBarBG.height - 8), this,
 			'songPercent', 0, 1);
@@ -1032,6 +1055,11 @@ class PlayState extends MusicBeatState
 		timeBar.alpha = 0;
 		timeBar.visible = !ClientPrefs.hideHud;
 		add(timeBar);
+                if (SONG.song.toLowerCase() == 'thunder')
+		{
+                timeBar.visible = false;                    
+                }
+               
 		add(timeTxt);
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
@@ -1091,6 +1119,8 @@ class PlayState extends MusicBeatState
 				p2HealthColor = 0xFFff4747;
 			case 'hank':
 				p2HealthColor = 0xFF9a9a9a;
+                        case 'rai' :
+                                p2HealthColor = 0xff87CEEB;
             case 'tankman':			
                 p2HealthColor = 0xFF282f55;
             case 'monster' | 'monster-christmas':
@@ -1118,6 +1148,10 @@ class PlayState extends MusicBeatState
 				p1HealthColor = 0xFF9a9a9a;
 			case 'monster' | 'monster-christmas':
 				p1HealthColor = 0xFFd2b915;
+                        case 'rai' :
+                                p1HealthColor = 0xff87CEEB;
+                        case 'tankman':			
+                                p1HealthColor = 0xFF282f55;
 		}
 
 		healthBarBG = new AttachedSprite('healthBar');
@@ -1671,7 +1705,18 @@ class PlayState extends MusicBeatState
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 
-		#if desktop
+		
+
+
+ if (curSong.toLowerCase() == 'thunder')
+		{
+                
+                timeBar.visible = false;                    
+		           
+                }
+
+
+#if desktop
 		DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", iconP2.getCharacter(), true, songLength);
 		#end
 		
@@ -2375,7 +2420,14 @@ class PlayState extends MusicBeatState
 					var minutesRemaining:Int = Math.floor(secondsTotal / 60);
 					var secondsRemaining:String = '' + secondsTotal % 60;
 					if(secondsRemaining.length < 2) secondsRemaining = '0' + secondsRemaining;
-					timeTxt.text = minutesRemaining + ':' + secondsRemaining;
+					if (curSong.toLowerCase() == 'thunder')
+			                {
+                                        timeTxt.text = "???";
+				        }
+                                        else
+                                        {
+                                        timeTxt.text = minutesRemaining + ':' + secondsRemaining;
+                                        }
 				}
 			}
 
@@ -2699,6 +2751,24 @@ class PlayState extends MusicBeatState
 				vocals.play();
 			}
 		}
+
+		if(SONG.song.toLowerCase() == 'thorns')
+			{
+				switch (curStep)
+				{
+					case 13:
+						scrollSpeed = 3;
+					case 34:
+						scrollSpeed = 1;	
+
+
+					
+				}
+			}
+		
+		
+
+
 
 		setOnLuas('cameraX', camFollowPos.x);
 		setOnLuas('cameraY', camFollowPos.y);
@@ -3948,8 +4018,26 @@ class PlayState extends MusicBeatState
 				}
 			}
 		}
+	
+	
+		if(SONG.song.toLowerCase() == 'thorns')
+			{
+				switch (curStep)
+				{
+					case 13:
+						scrollSpeed = 3;
+					case 34:
+						scrollSpeed = 1;	
+
+
+					
+				}
+			}
+	
 	}
 
+	
+	
 	var lightningStrikeBeat:Int = 0;
 	var lightningOffset:Int = 8;
 

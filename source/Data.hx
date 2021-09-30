@@ -219,7 +219,8 @@ class WeekData {
 		['Satin-Panties', 'High', 'Milf'],			//Week 4
 		['Cocoa', 'Eggnog', 'Winter-Horrorland'],	//Week 5
 		['Senpai', 'Roses', 'Thorns'],				//Week 6
-		['Ugh', 'Guns', 'Stress']
+		['Ugh', 'Guns', 'Stress'],
+                ['sunny', 'snowy', 'thunder']
 
 	];
 
@@ -234,7 +235,8 @@ class WeekData {
 		null,	//Week 4
 		null,	//Week 5
 		null,	//Week 6
-		null
+		null,
+                null
 	];
 
 	//Tells which assets directory should it load
@@ -252,7 +254,8 @@ class WeekData {
 		null,	//Week 4
 		null,	//Week 5
 		null,	//Week 6
-		null	//Week
+		null,	//Week
+                null
 	];
 
 	//The only use for this is to display a different name for the Week when you're on the score reset menu.
@@ -267,7 +270,8 @@ class WeekData {
 		null,	//Week 4
 		null,	//Week 5
 		null,	//Week 6
-		null
+		null,
+                null
 	];
 
 

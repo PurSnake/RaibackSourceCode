@@ -431,7 +431,8 @@ class FreeplayState extends MusicBeatState
 		['mom'],							//Week 4
 		['parents', 'parents', 'monster'],	//Week 5
 		['senpai', 'senpai-angry', 'spirit'],		//Week 6
-                ['tankman']
+                ['tankman'],
+                ['rai']
 		
 
 	];
@@ -791,7 +792,8 @@ class StoryMenuState extends MusicBeatState
 		true,	//Week 4
 		true,	//Week 5
 		true,   //Week 6
-		true	//Week 7
+		true,	//Week 7
+                true
 	];
 
 	//It works like this:
@@ -804,7 +806,9 @@ class StoryMenuState extends MusicBeatState
 		['mom', 'bf', 'gf'],
 		['parents-christmas', 'bf', 'gf'],
 		['senpai', 'bf', 'gf'],
-		['tankman', 'bf', 'gf']
+		['tankman', 'bf', 'gf'],
+                ['dad', 'bf', 'gf'],
+
 	];
 
 	//The week's name, displayed on top-right
@@ -816,7 +820,9 @@ class StoryMenuState extends MusicBeatState
 		"MOMMY MUST MURDER",
 		"RED SNOW",
 		"hating simulator ft. moawling",
-		"tankman"
+		"tankman",
+                "introducing no name character Raiback!",
+
 	];
 
 	//Background asset name, the background files are stored on assets/preload/menubackgrounds/
@@ -828,7 +834,8 @@ class StoryMenuState extends MusicBeatState
 		'limo',
 		'christmas',
 		'school',
-		'stage'
+		'stage',
+                'stage'
 	];
 	
 	var scoreText:FlxText;
