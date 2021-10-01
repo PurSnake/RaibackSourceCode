@@ -273,9 +273,13 @@ class CreditsState extends MusicBeatState
 	private var iconArray:Array<AttachedSprite> = [];
 
 	private static var creditsStuff:Array<Dynamic> = [ //Name - Icon name - Description - Link - BG Color
-		['Graphex Engine by'],
+		['VS Raiback Mod by'],
+                ['PurpleSnake','snake','Main Programmer','https://github.com/PurpleSSSnake', 0xFF6A0DAD],
+                ['Aculaner','aculaner','ideological producer','https://github.com/PurpleSSSnake', 0xff0000FF],
+                ['Raiback','raiback','Artist, animator','https://github.com/PurpleSSSnake', 0xff87CEEB],
+                ['Graphex Engine by'],
 		['XaleTheCat','xale','Lead Developer of Grafex Engine','https://github.com/XaleTheCat', 0xFFf7a300],
-		['PurpleSnake','snake','Additional developer of Grafex Engine','https://github.com/PurpleSSSnake', 0xFF6475F3],
+		['PurpleSnake','snake','Additional developer of Grafex Engine','https://github.com/PurpleSSSnake', 0xFF6A0DAD],
 		[''],
 		['Psych Engine Team'],
 		['Shadow Mario','shadowmario','Main Programmer of Psych Engine','https://twitter.com/Shadow_Mario_',0xFFFFDD33],
@@ -283,9 +287,9 @@ class CreditsState extends MusicBeatState
 		['Keoiki','keoiki','Note Splash Animations','https://twitter.com/Keoiki_',0xFFFFFFFF],
 		[''],
 		["Funkin' Crew"],
-		['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",				'https://twitter.com/ninja_muffin99',	0xFFF73838],
-		['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",					'https://twitter.com/PhantomArcade3K',	0xFFFFBB1B],
-		['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",					'https://twitter.com/evilsk8r',			0xFF53E52C],
+		['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",				'https://twitter.com/ninja_muffin99',	                0xFFF73838],
+		['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",					'https://twitter.com/PhantomArcade3K',	        0xFFFFBB1B],
+		['evilsk8r',			'evilsk8r',		"Artist of Friday Night Funkin'",					'https://twitter.com/evilsk8r',			0xFF53E52C],
 		['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",					'https://twitter.com/kawaisprite',		0xFF6475F3]
 	];
 
