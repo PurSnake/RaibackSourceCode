@@ -429,14 +429,7 @@ class FreeplayState extends MusicBeatState
 {
 	//Character head icons for your songs
 	static var songsHeads:Array<Dynamic> = [
-		['dad'],							//Week 1
-		['spooky', 'spooky', 'monster'],	//Week 2
-		['pico'],							//Week 3
-		['mom'],							//Week 4
-		['parents', 'parents', 'monster'],	//Week 5
-		['senpai', 'senpai-angry', 'spirit'],		//Week 6
-                ['tankman'],
-                ['rai']
+                ['rai'],
 		
 
 	];
@@ -790,13 +783,6 @@ class StoryMenuState extends MusicBeatState
 	// defaults to True
 	public static var weekUnlocked:Array<Bool> = [
 		true,	//Tutorial
-		true,	//Week 1
-		true,	//Week 2
-		true,	//Week 3
-		true,	//Week 4
-		true,	//Week 5
-		true,   //Week 6
-		true,	//Week 7
                 true
 	];
 
@@ -804,27 +790,13 @@ class StoryMenuState extends MusicBeatState
 	// ['Left character', 'Center character', 'Right character']
 	var weekCharacters:Array<Dynamic> = [
 		['dad', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['spooky', 'bf', 'gf'],
-		['pico', 'bf', 'gf'],
-		['mom', 'bf', 'gf'],
-		['parents-christmas', 'bf', 'gf'],
-		['senpai', 'bf', 'gf'],
-		['tankman', 'bf', 'gf'],
                 ['dad', 'bf', 'gf'],
 
 	];
 
 	//The week's name, displayed on top-right
 	var weekNames:Array<String> = [
-		"",
-		"Daddy Dearest",
-		"Spooky Month",
-		"PICO",
-		"MOMMY MUST MURDER",
-		"RED SNOW",
-		"hating simulator ft. moawling",
-		"tankman",
+		"how to funk",
                 "introducing no name character Raiback!",
 
 	];
@@ -833,13 +805,6 @@ class StoryMenuState extends MusicBeatState
 	var weekBackground:Array<String> = [
 		'stage',		
 		'stage',
-		'halloween',
-		'philly',
-		'limo',
-		'christmas',
-		'school',
-		'stage',
-                'stage'
 	];
 	
 	var scoreText:FlxText;
