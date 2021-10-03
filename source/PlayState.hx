@@ -4083,17 +4083,17 @@ class PlayState extends MusicBeatState
 
                 if (camZooming&& curBeat % 2 == 1)
 		   {
-			iconP2.scale.x += 0.15;
-		        iconP2.scale.y += 0.15;
-                        iconP1.scale.x += 0.15;
-		        iconP1.scale.y += 0.15;
+			iconP2.scale.x += 0.1;
+		        iconP2.scale.y += 0.1;
+                        iconP1.scale.x += 0.1;
+		        iconP1.scale.y += 0.1;
 		   }
 		if (camZooming&& curBeat % 2 == 0)
 			{
-				iconP1.scale.x += 0.3;
-		                iconP1.scale.y += 0.3;
-			        iconP2.scale.x += 0.3;
-		                iconP2.scale.y += 0.3;
+				iconP1.scale.x += 0.4;
+		                iconP1.scale.y += 0.4;
+			        iconP2.scale.x += 0.4;
+		                iconP2.scale.y += 0.4;
 
                         }
 		
