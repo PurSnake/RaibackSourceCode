@@ -463,6 +463,26 @@ class FreeplayState extends MusicBeatState
 	{
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
+		
+
+		#if desktop
+		DiscordClient.changePresence("In the Freeplay Menu", null);
+		#end
+
+		var initSongTutor = CoolUtil.coolTextFile(Paths.txt('freeplayTutorial'));
+		for (i in 0...initSongTutor.length)
+		{
+			var songArray:Array<String> = initSongTutor[i].split(":");
+			addSong(songArray[0], 0, songArray[1]);
+			songs[songs.length-1].color = Std.parseInt(songArray[2]);
+		}
+                for (i in 1...WeekData.songsNames.length) {
+			#if !debug
+			if (StoryMenuState.weekUnlocked[i])
+			#end
+				addWeek(WeekData.songsNames[i], i, songsHeads[i-1]);
+		}
+
 		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
 		for (i in 0...initSonglist.length)
 		{
@@ -476,18 +496,7 @@ class FreeplayState extends MusicBeatState
 			coolColors.push(Std.parseInt(colorsList[i]));
 		}
 
-		#if desktop
-		DiscordClient.changePresence("In the Freeplay Menu", null);
-		#end
-
-		for (i in 1...WeekData.songsNames.length) {
-			#if !debug
-			if (StoryMenuState.weekUnlocked[i])
-			#end
-				addWeek(WeekData.songsNames[i], i, songsHeads[i-1]);
-		}
-
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+                bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		add(bg);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
