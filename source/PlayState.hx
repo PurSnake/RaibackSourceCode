@@ -1148,7 +1148,7 @@ class PlayState extends MusicBeatState
 				p1HealthColor = 0xFF9a9a9a;
 			case 'monster' | 'monster-christmas':
 				p1HealthColor = 0xFFd2b915;
-                        case 'rai' :
+                        case 'rai' | 'rai3' :
                                 p1HealthColor = 0xff87CEEB;
                         case 'tankman':			
                                 p1HealthColor = 0xFF282f55;

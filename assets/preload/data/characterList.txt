@@ -22,6 +22,8 @@ pico-player
 hank
 tankman
 rai
+rai3
+
 picospeaker
 tangf
 bfgf
