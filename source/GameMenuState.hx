@@ -48,7 +48,9 @@ class GameMenuState extends MusicBeatState
 
 class MainMenuState extends MusicBeatState
 {
-	public static var curSelected:Int = 0;
+   
+
+    public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
@@ -71,6 +73,12 @@ class MainMenuState extends MusicBeatState
 		FlxG.cameras.reset(camGame);
 		FlxCamera.defaultCameras = [camGame];
 
+		if(FlxG.sound.music == null)
+			{
+				FlxG.sound.playMusic(Paths.music('menu'), 0);
+
+				FlxG.sound.music.fadeIn(4, 0, 0.7);
+			}
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
@@ -269,7 +277,7 @@ class CreditsState extends MusicBeatState
 {
 	var curSelected:Int = 1;
 
-	private var grpOptions:FlxTypedGroup<Alphabet>;
+    private var grpOptions:FlxTypedGroup<Alphabet>;
 	private var iconArray:Array<AttachedSprite> = [];
 
 	private static var creditsStuff:Array<Dynamic> = [ //Name - Icon name - Description - Link - BG Color
@@ -305,6 +313,12 @@ class CreditsState extends MusicBeatState
 		DiscordClient.changePresence("In the Credits Menu", null);
 		#end
 
+		if(FlxG.sound.music == null)
+			{
+				FlxG.sound.playMusic(Paths.music('menu'), 0);
+
+				FlxG.sound.music.fadeIn(4, 0, 0.7);
+			}
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		add(bg);
 
@@ -436,7 +450,7 @@ class FreeplayState extends MusicBeatState
 
 	var songs:Array<SongMetadata> = [];
 
-	var selector:FlxText;
+        var selector:FlxText;
 	private static var curSelected:Int = 0;
 	private static var curDifficulty:Int = 1;
 
@@ -463,7 +477,12 @@ class FreeplayState extends MusicBeatState
 	{
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
-		
+		if(FlxG.sound.music == null)
+			{
+				FlxG.sound.playMusic(Paths.music('menu'), 0);
+
+				FlxG.sound.music.fadeIn(4, 0, 0.7);
+			}
 
 		#if desktop
 		DiscordClient.changePresence("In the Freeplay Menu", null);
@@ -786,7 +805,8 @@ class SongMetadata
 
 class StoryMenuState extends MusicBeatState
 {
-	// Wether you have to beat the previous week for playing this one
+	
+        // Wether you have to beat the previous week for playing this one
 	// Not recommended, as people usually download your mod for, you know,
 	// playing just the modded week then delete it.
 	// defaults to True
@@ -841,7 +861,12 @@ class StoryMenuState extends MusicBeatState
 	{
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
+		if(FlxG.sound.music == null)
+			{
+				FlxG.sound.playMusic(Paths.music('menu'), 0);
 
+				FlxG.sound.music.fadeIn(4, 0, 0.7);
+			}
 		persistentUpdate = persistentDraw = true;
 
 		scoreText = new FlxText(10, 10, 0, "SCORE: 49324858", 36);
@@ -1184,7 +1209,8 @@ class StoryMenuState extends MusicBeatState
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Notes', 'Controls', 'Preferences'];
+
+        var options:Array<String> = ['Notes', 'Controls', 'Preferences'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -1195,7 +1221,12 @@ class OptionsState extends MusicBeatState
 		DiscordClient.changePresence("In the Options Menu", null);
 		#end
 
+		if(FlxG.sound.music == null)
+			{
+				FlxG.sound.playMusic(Paths.music('menu'), 0);
 
+				FlxG.sound.music.fadeIn(4, 0, 0.7);
+			}
                 menuBG = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		menuBG.color = 0xFFea71fd;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));

@@ -134,13 +134,13 @@ class TitleState extends MusicBeatState
 		{
 			if(FlxG.sound.music == null)
 			{
-				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+				FlxG.sound.playMusic(Paths.music('menu_start'), 0);
 
 				FlxG.sound.music.fadeIn(4, 0, 0.7);
 			}
 		}
 
-		Conductor.changeBPM(102);
+		Conductor.changeBPM(108);
 		persistentUpdate = true;
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
@@ -272,7 +272,15 @@ class TitleState extends MusicBeatState
 				MusicBeatState.switchState(new GameMenuState.MainMenuState());
 				closedState = true;
 			});
-		}
+		          new FlxTimer().start(1.5, function(tmr:FlxTimer)
+			{
+				MusicBeatState.switchState(new GameMenuState.MainMenuState());
+				closedState = true;
+			
+				FlxG.sound.music.stop();
+			 
+                           });
+                }
 
 		if (pressedEnter && !skippedIntro)
 		{
