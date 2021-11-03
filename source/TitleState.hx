@@ -140,7 +140,7 @@ class TitleState extends MusicBeatState
 			}
 		}
 
-		Conductor.changeBPM(108);
+		Conductor.changeBPM(114);
 		persistentUpdate = true;
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
@@ -272,7 +272,7 @@ class TitleState extends MusicBeatState
 				MusicBeatState.switchState(new GameMenuState.MainMenuState());
 				closedState = true;
 			});
-		          new FlxTimer().start(1.5, function(tmr:FlxTimer)
+		          new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
 				MusicBeatState.switchState(new GameMenuState.MainMenuState());
 				closedState = true;

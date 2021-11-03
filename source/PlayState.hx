@@ -1119,7 +1119,7 @@ class PlayState extends MusicBeatState
 				p2HealthColor = 0xFFff4747;
 			case 'hank':
 				p2HealthColor = 0xFF9a9a9a;
-                        case 'rai' :
+                        case 'rai' | 'rai3':
                                 p2HealthColor = 0xff87CEEB;
             case 'tankman':			
                 p2HealthColor = 0xFF282f55;

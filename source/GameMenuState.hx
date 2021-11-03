@@ -73,12 +73,10 @@ class MainMenuState extends MusicBeatState
 		FlxG.cameras.reset(camGame);
 		FlxCamera.defaultCameras = [camGame];
 
-		if(FlxG.sound.music == null)
-			{
-				FlxG.sound.playMusic(Paths.music('menu'), 0);
-
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
-			}
+		if (!FlxG.sound.music.playing)
+		{
+			FlxG.sound.playMusic(Paths.music('menu'));
+		}
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
@@ -313,12 +311,10 @@ class CreditsState extends MusicBeatState
 		DiscordClient.changePresence("In the Credits Menu", null);
 		#end
 
-		if(FlxG.sound.music == null)
-			{
-				FlxG.sound.playMusic(Paths.music('menu'), 0);
-
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
-			}
+		if (!FlxG.sound.music.playing)
+		{
+			FlxG.sound.playMusic(Paths.music('menu'));
+		}
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		add(bg);
 
@@ -477,12 +473,10 @@ class FreeplayState extends MusicBeatState
 	{
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
-		if(FlxG.sound.music == null)
-			{
-				FlxG.sound.playMusic(Paths.music('menu'), 0);
-
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
-			}
+		if (!FlxG.sound.music.playing)
+		{
+			FlxG.sound.playMusic(Paths.music('menu'));
+		}
 
 		#if desktop
 		DiscordClient.changePresence("In the Freeplay Menu", null);
@@ -861,12 +855,11 @@ class StoryMenuState extends MusicBeatState
 	{
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
-		if(FlxG.sound.music == null)
-			{
-				FlxG.sound.playMusic(Paths.music('menu'), 0);
-
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
-			}
+		
+			if (!FlxG.sound.music.playing)
+		{
+			FlxG.sound.playMusic(Paths.music('menu'));
+		}
 		persistentUpdate = persistentDraw = true;
 
 		scoreText = new FlxText(10, 10, 0, "SCORE: 49324858", 36);
@@ -1221,12 +1214,10 @@ class OptionsState extends MusicBeatState
 		DiscordClient.changePresence("In the Options Menu", null);
 		#end
 
-		if(FlxG.sound.music == null)
-			{
-				FlxG.sound.playMusic(Paths.music('menu'), 0);
-
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
-			}
+		if (!FlxG.sound.music.playing)
+		{
+			FlxG.sound.playMusic(Paths.music('menu'));
+		}
                 menuBG = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		menuBG.color = 0xFFea71fd;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
