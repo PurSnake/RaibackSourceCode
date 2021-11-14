@@ -6,6 +6,17 @@ import sys.thread.Thread;
 #end
 // This used for working all-in-one script ":) - Xale
 import GameMenuState;
+import PlayState;
+import Data;
+import AttachedStuff;
+import Notes;
+import SongData;
+import MusicBeatState;
+import ShaderEffects;
+import BackgroundStuff;
+import Dialogue;
+import VideoState;
+
 // ---
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -29,18 +40,31 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
-import Data;
+
+import haxe.Json;
+import haxe.format.JsonParser;
+import lime.utils.Assets;
 
 using StringTools;
 
 class TitleState extends MusicBeatState
 {
+
+	
+	
+	
+	
+	
+	
+	
+	
 	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
 	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
 	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
 
 	static var initialized:Bool = false;
-
+	var CrazyFile:String = 'ForgotToDelete';
+	
 	var blackScreen:FlxSprite;
 	var credGroup:FlxGroup;
 	var credTextShit:Alphabet;
@@ -258,7 +282,8 @@ class TitleState extends MusicBeatState
 
 		if (pressedEnter && !transitioning && skippedIntro)
 		{
-			if(titleText != null) titleText.animation.play('press');
+			
+				if(titleText != null) titleText.animation.play('press');
 
 			FlxG.camera.flash(FlxColor.WHITE, 0.4);
 			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
@@ -280,7 +305,8 @@ class TitleState extends MusicBeatState
 				FlxG.sound.music.stop();
 			 
                            });
-                }
+		       
+			}
 
 		if (pressedEnter && !skippedIntro)
 		{
