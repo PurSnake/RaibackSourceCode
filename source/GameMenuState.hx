@@ -281,8 +281,8 @@ class CreditsState extends MusicBeatState
 	private static var creditsStuff:Array<Dynamic> = [ //Name - Icon name - Description - Link - BG Color
 		['VS Raiback Mod by'],
                 ['PurpleSnake','snake','Main Programmer','https://github.com/PurpleSSSnake', 0xFF6A0DAD],
-                ['Aculaner','aculaner','ideological producer','https://github.com/PurpleSSSnake', 0xff0000FF],
-                ['Raiback','raiback','Artist, animator','https://github.com/PurpleSSSnake', 0xff87CEEB],
+                ['Aculaner','aculaner','ideological producer','https://www.youtube.com/channel/UCFvisVJ7LdcCx_6Vxg_QIHQ', 0xff0000FF],
+                ['Raiback','raiback','Artist, animator','https://www.youtube.com/channel/UCcqaT1sCJK3bIuRSeJSqVVw', 0xff87CEEB],
                 ['Graphex Engine by'],
 		['XaleTheCat','xale','Lead Developer of Grafex Engine','https://github.com/XaleTheCat', 0xFFf7a300],
 		['PurpleSnake','snake','Additional developer of Grafex Engine','https://github.com/PurpleSSSnake', 0xFF6A0DAD],
