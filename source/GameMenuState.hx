@@ -11,6 +11,8 @@ import SongData;
 import GameMenuStuff;
 import MusicBeatState;
 import VideoState;
+import PlayState;
+
 // ---
 import flixel.FlxG;
 import flixel.FlxObject;
@@ -441,6 +443,8 @@ class FreeplayState extends MusicBeatState
 	//Character head icons for your songs
 	static var songsHeads:Array<Dynamic> = [
                 ['rai'],
+				['rai'],
+				['rai'],
 		
 
 	];
@@ -497,21 +501,30 @@ class FreeplayState extends MusicBeatState
 				addWeek(WeekData.songsNames[i], i, songsHeads[i-1]);
 		}
 
-		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
-		for (i in 0...initSonglist.length)
-		{
-			var songArray:Array<String> = initSonglist[i].split(":");
-			addSong(songArray[0], 0, songArray[1]);
-			songs[songs.length-1].color = Std.parseInt(songArray[2]);
-		}
+	
+		
 		var initbruh = CoolUtil.coolTextFile(Paths.txt('bruh'));
-		for (i in 0...initSonglist.length)
+		for (i in 0...initbruh.length)
 		{
-			var songArray:Array<String> = initbruh[i].split(":");
-			addSong(songArray[0], 0, songArray[1]);
-			songs[songs.length-1].color = Std.parseInt(songArray[2]);
+			addSong("crazyrai", 0, "raicrazy");
+			songs[songs.length-1].color = Std.parseInt('0xff87CEEB');
 		}
-                var colorsList = CoolUtil.coolTextFile(Paths.txt('freeplayColors'));
+        for (i in 0...initbruh.length)
+		{
+			if (PlayState.thunderpassed)
+				{
+			         addSong("ugh", 0,"rai");
+			         songs[songs.length-1].color = Std.parseInt("0xff87CEEB");
+				}
+		    else
+				{
+
+				}
+
+		
+		
+		}       
+		var colorsList = CoolUtil.coolTextFile(Paths.txt('freeplayColors'));
 		for (i in 0...colorsList.length)
 		{
 			coolColors.push(Std.parseInt(colorsList[i]));
@@ -1878,7 +1891,6 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 		'GAMEPLAY',
 		'Downscroll',
-		'Ghost Tapping',
 		'Note Delay',
 		'Note Splashes',
 		'Hide HUD',
@@ -2052,9 +2064,6 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 					case 'Middlescroll':
 						ClientPrefs.middleScroll = !ClientPrefs.middleScroll;
- 
-                    case 'Ghost Tapping':
-						ClientPrefs.ghostTapping = !ClientPrefs.ghostTapping;
 
 					case 'Camera Zooms':
 						ClientPrefs.camZooms = !ClientPrefs.camZooms;
@@ -2136,8 +2145,6 @@ class PreferencesSubstate extends MusicBeatSubstate
 				daText = "If checked, notes go Down instead of Up, simple enough.";
 			case 'Middlescroll':
 				daText = "If checked, hides Opponent's notes and your notes get centered.";
-            case 'Ghost Tapping':
-				daText = "If checked, you won't get misses from pressing keys\nwhile there are no notes able to be hit.";
 			case 'Swearing':
 				daText = "If unchecked, your mom won't be angry at you.";
 			case 'Violence':
@@ -2228,8 +2235,6 @@ class PreferencesSubstate extends MusicBeatSubstate
 						daValue = ClientPrefs.downScroll;
 					case 'Middlescroll':
 						daValue = ClientPrefs.middleScroll;
-                    case 'Ghost Tapping':
-						daValue = ClientPrefs.ghostTapping;
 					case 'Swearing':
 						daValue = ClientPrefs.cursing;
 					case 'Violence':

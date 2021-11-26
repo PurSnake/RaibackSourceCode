@@ -59,6 +59,12 @@ using StringTools;
 
 class PlayState extends MusicBeatState
 {
+	public static var thunderpassed:Bool = false;
+	
+	
+	
+	
+	
 	public static var STRUM_X = 42;
 
 	public static var ratingStuff:Array<Dynamic> = [
@@ -316,10 +322,11 @@ class PlayState extends MusicBeatState
 			case 'sunny' | 'snowy' | 'thunder': 
                                                 defaultCamZoom = 0.7;
 						curStage = 'japan';
-						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('japan', 'raiback'));
+						var bg:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('japan', 'raiback'));
 						bg.antialiasing = true;
 						bg.scrollFactor.set(0.9, 0.9);
 						bg.active = false;
+						bg.setGraphicSize(Std.int(bg.width * 1.5));
 						add(bg);  
 
 
@@ -4072,6 +4079,13 @@ class PlayState extends MusicBeatState
 			setOnLuas('mustHitSection', SONG.notes[Math.floor(curStep / 16)].mustHitSection);
 		}
 
+		if((SONG.song.toLowerCase() == 'thunder') || (curBeat == 376))
+			{
+			thunderpassed = true;
+			}
+		if((SONG.song.toLowerCase() == 'sunny')|| (curBeat == 1))
+			thunderpassed = false;
+		
 		if (camZooming && FlxG.camera.zoom < 1.35 && ClientPrefs.camZooms && curBeat % 4 == 0)
 		{
 			FlxG.camera.zoom += 0.015;
