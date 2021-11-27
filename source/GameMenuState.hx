@@ -678,17 +678,14 @@ class FreeplayState extends MusicBeatState
 		}
 		else #end if (accepted)
 		{
+			
+			var video:MP4Handler = new MP4Handler();
 			var songLowercase:String = songs[curSelected].songName.toLowerCase();
 			var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-			if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
-				poop = songLowercase;
-				curDifficulty = 1;
-				trace('Couldnt find file');
-			}
-			trace(poop);
-
+			
+				
 			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-			PlayState.isStoryMode = false;
+			PlayState.isStoryMode = true;
 			PlayState.storyDifficulty = curDifficulty;
 
 			PlayState.storyWeek = songs[curSelected].week;
@@ -697,7 +694,7 @@ class FreeplayState extends MusicBeatState
 				colorTween.cancel();
 			}
 			LoadingState.loadAndSwitchState(new PlayState());
-
+		
 			FlxG.sound.music.volume = 0;
 					
 			destroyFreeplayVocals();
