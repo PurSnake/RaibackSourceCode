@@ -326,7 +326,7 @@ class PlayState extends MusicBeatState
 						bg.antialiasing = true;
 						bg.scrollFactor.set(0.9, 0.9);
 						bg.active = false;
-						bg.setGraphicSize(Std.int(bg.width * 1.5));
+						bg.setGraphicSize(Std.int(bg.width * 1));
 						add(bg);  
 
 
