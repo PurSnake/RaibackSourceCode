@@ -319,14 +319,14 @@ class PlayState extends MusicBeatState
 
 		switch (SONG.song.toLowerCase())
 		{
-			case 'sunny' | 'snowy' | 'thunder': 
+			case 'sunny' | 'snowy' | 'thunder' | 'storm': 
                                                 defaultCamZoom = 0.7;
 						curStage = 'japan';
 						var bg:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('japan', 'raiback'));
 						bg.antialiasing = true;
 						bg.scrollFactor.set(0.9, 0.9);
 						bg.active = false;
-						bg.setGraphicSize(Std.int(bg.width * 1));
+						bg.setGraphicSize(Std.int(bg.width * 1.6));
 						add(bg);  
 
 
