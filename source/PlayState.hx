@@ -79,6 +79,7 @@ class PlayState extends MusicBeatState
 		['Sick!', 1], //From 90% to 99%
 		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1" - ShadowMario
 		// THANK YOU, SHADOWMARIO!! THANK YOU FOR REWORKING THIS THING!!! UWU - Xale
+		// Cringe - Aculaner
 	]; 
 
 	//event variables
@@ -328,7 +329,7 @@ class PlayState extends MusicBeatState
 						bg.active = false;
 						bg.setGraphicSize(Std.int(bg.width * 1));
 						add(bg);  
-                        case 'sunny' | 'snowy' | 'thunder' | 'storm': 
+                        case 'sunny' | 'snowy': 
                                                 defaultCamZoom = 0.7;
 						curStage = 'japan';
 						var bg:FlxSprite = new FlxSprite(-600, -300).loadGraphic(Paths.image('Japan_evening', 'raiback'));
