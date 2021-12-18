@@ -1,4 +1,4 @@
-package;
+аpackage;
 
 #if desktop
 import Discord.DiscordClient;
@@ -15,6 +15,7 @@ import BackgroundStuff;
 import Dialogue;
 import VideoState;
 // ---
+import flixel.util.FlxSave;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -59,7 +60,7 @@ using StringTools;
 
 class PlayState extends MusicBeatState
 {
-	public static var thunderpassed:Bool = false;
+	
 	
 	
 	
@@ -329,7 +330,7 @@ class PlayState extends MusicBeatState
 						bg.active = false;
 						bg.setGraphicSize(Std.int(bg.width * 1));
 						add(bg);  
-                        case 'sunny' | 'snowy': 
+                        case 'snowy': 
                                                 defaultCamZoom = 0.7;
 						curStage = 'japan';
 						var bg:FlxSprite = new FlxSprite(-600, -300).loadGraphic(Paths.image('Japan_evening', 'raiback'));
@@ -4096,12 +4097,16 @@ class PlayState extends MusicBeatState
 			setOnLuas('mustHitSection', SONG.notes[Math.floor(curStep / 16)].mustHitSection);
 		}
 
-		if((SONG.song.toLowerCase() == 'thunder') || (curBeat == 376))
+		if (SONG.song.toLowerCase() == 'thunder' && curBeat == 376)
 			{
-			thunderpassed = true;
+			ClientPrefs.fuckcrazy = true;
+                var save:FlxSave = new FlxSave();
+		save.bind('controls', 'xale'); //Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
+		
+		save.flush();
+		FlxG.log.add("Settings saved!");
 			}
-		if((SONG.song.toLowerCase() == 'sunny')|| (curBeat == 1))
-			thunderpassed = false;
+		
 		
 		if (camZooming && FlxG.camera.zoom < 1.35 && ClientPrefs.camZooms && curBeat % 4 == 0)
 		{
@@ -4112,14 +4117,14 @@ class PlayState extends MusicBeatState
 		
 
 
-                if (camZooming&& curBeat % 2 == 1)
+                if (camZooming && curBeat % 2 == 1)
 		   {
 			iconP2.scale.x += 0.1;
 		        iconP2.scale.y += 0.1;
                         iconP1.scale.x += 0.1;
 		        iconP1.scale.y += 0.1;
 		   }
-		if (camZooming&& curBeat % 2 == 0)
+		if (camZooming && curBeat % 2 == 0)
 			{
 				iconP1.scale.x += 0.4;
 		                iconP1.scale.y += 0.4;

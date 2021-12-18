@@ -503,23 +503,27 @@ class FreeplayState extends MusicBeatState
 
 	
 		
-		var initbruh = CoolUtil.coolTextFile(Paths.txt('bruh'));
-		for (i in 0...initbruh.length)
-		{
-			addSong("crazyrai", 0, "raicrazy");
+		
+
+var initbruh = CoolUtil.coolTextFile(Paths.txt('bruh'));
+		
+			
+                  if(!sys.FileSystem.exists(Paths.image("ForgotToDelete"))) 
+                         {
+						
+					
+                        addSong("crazyrai", 0, "rai");
 			songs[songs.length-1].color = Std.parseInt('0xff87CEEB');
-		}
+                               }
+		
         for (i in 0...initbruh.length)
 		{
-			if (PlayState.thunderpassed)
+			if (ClientPrefs.fuckcrazy)
 				{
 			         addSong("ugh", 0,"rai");
 			         songs[songs.length-1].color = Std.parseInt("0xff87CEEB");
 				}
-		    else
-				{
-
-				}
+		    
 
 		
 		
