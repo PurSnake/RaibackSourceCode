@@ -2686,6 +2686,8 @@ class PlayState extends MusicBeatState
 										}
 										callOnLuas('noteMiss', [daNote.noteData, daNote.noteType]);
 
+									case 3:
+                                              //nothing
 									case 4: // Heal note
 										// Does nothing - Xale
 
@@ -3216,12 +3218,25 @@ class PlayState extends MusicBeatState
 
 			if (storyPlaylist.length <= 0)
 			{
-				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				
 
 				transIn = FlxTransitionableState.defaultTransIn;
 				transOut = FlxTransitionableState.defaultTransOut;
 
+				
+				if (SONG.song.toLowerCase() == 'storm')
+				{
+					var video:MP4Handler = new MP4Handler();
+						video.playMP4(Paths.video('endStormCutscene'), new MainMenuState());
+						trace('File found');
+					
+
+
+				}
+				else{
 				MusicBeatState.switchState(new StoryMenuState());
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			}
 
 				StoryMenuState.weekUnlocked[Std.int(Math.min(storyWeek + 1, StoryMenuState.weekUnlocked.length - 1))] = true;
 
@@ -4100,11 +4115,15 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() == 'thunder' && curBeat == 376)
 			{
 			ClientPrefs.fuckcrazy = true;
+			FlxG.save.data.fuckcrazy = true;
                 var save:FlxSave = new FlxSave();
-		save.bind('controls', 'xale'); //Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
+		        save.bind('controls', 'xale'); //Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
 		
-		save.flush();
-		FlxG.log.add("Settings saved!");
+		        save.flush();
+		        FlxG.log.add("Settings saved!");
+		
+				ClientPrefs.saveSettings();
+		
 			}
 		
 		
