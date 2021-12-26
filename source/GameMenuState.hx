@@ -684,13 +684,13 @@ var initbruh = CoolUtil.coolTextFile(Paths.txt('bruh'));
 		else #end if (accepted)
 		{
 			
-			var video:MP4Handler = new MP4Handler();
+		
 			var songLowercase:String = songs[curSelected].songName.toLowerCase();
 			var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
 			
 				
 			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-			PlayState.isStoryMode = true;
+			PlayState.isStoryMode = false;
 			PlayState.storyDifficulty = curDifficulty;
 
 			PlayState.storyWeek = songs[curSelected].week;
@@ -698,7 +698,20 @@ var initbruh = CoolUtil.coolTextFile(Paths.txt('bruh'));
 			if(colorTween != null) {
 				colorTween.cancel();
 			}
-			LoadingState.loadAndSwitchState(new PlayState());
+			
+			                    var video:MP4Handler = new MP4Handler();
+								new FlxTimer().start(1, function(tmr:FlxTimer)
+								{
+									if(sys.FileSystem.exists(Paths.video(PlayState.SONG.song.toLowerCase() + 'Cutscene'))) {
+										video.playMP4(Paths.video(PlayState.SONG.song.toLowerCase() + 'Cutscene'), new PlayState());
+										trace('File found');		
+										FreeplayState.destroyFreeplayVocals();
+									}
+									else
+										LoadingState.loadAndSwitchState(new PlayState(), true);
+									FreeplayState.destroyFreeplayVocals();
+								});
+			
 		
 			FlxG.sound.music.volume = 0;
 					
