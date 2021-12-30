@@ -1368,7 +1368,10 @@ class PlayState extends MusicBeatState
 					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 
-				default:
+				case 'sunny' :
+                             
+                                dialogueIntro(dialogue);
+                                default:
 					startCountdown();
 			}
 			seenCutscene = true;
@@ -1445,17 +1448,19 @@ class PlayState extends MusicBeatState
 	var dialogueCount:Int = 0;
 
 	public function dialogueIntro(dialogue:Array<String>, ?song:String = null):Void
-	{
-		inCutscene = true;
-		CoolUtil.precacheSound('dialogue');
-		CoolUtil.precacheSound('dialogueClose');
-		var doof:NormalDialogueBox = new NormalDialogueBox(dialogue, song);
-		doof.scrollFactor.set();
-		doof.finishThing = startCountdown;
-		doof.nextDialogueThing = startNextDialogue;
-		doof.cameras = [camHUD];
-		add(doof);
-	}
+		{
+			inCutscene = true;
+			CoolUtil.precacheSound('dialogue');
+			CoolUtil.precacheSound('dialogueClose');
+			var doof:NormalDialogueBox = new NormalDialogueBox(dialogue, song);
+			doof.scrollFactor.set();
+			doof.finishThing = startCountdown;
+			doof.nextDialogueThing = startNextDialogue;
+			doof.cameras = [camHUD];
+			add(doof);
+		}
+
+
 
 	function schoolIntro(?dialogueBox:PixelDialogueBox):Void
 	{

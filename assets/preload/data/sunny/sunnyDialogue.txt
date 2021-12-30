@@ -1,0 +1,14 @@
+wn:bf
+:0:talk:0.05:0:How did get here?
+:0:bf:0.1:1:Beep
+:0:talk:0.05:0:What's that, you wanna rap battle?
+:0:talk:0.04:0:I just had a microphone
+:0:talk:0.04:0:in my pocket 
+:0:bf:0.05:0:Boop Beep Bap
+:0:talk:0.09:0:How?...
+:0:talk:0.05:0:How did I get a microphone in my pocket?
+:0:bf:0.05:0: :)
+:0:talk:0.05:0:Well i don't know
+:0:bf:0.05:0:Boop
+:0:talk:0.05:0:Okay 
+:0:talk:0.05:0:Let's battle

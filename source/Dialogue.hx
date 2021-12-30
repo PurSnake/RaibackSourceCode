@@ -23,9 +23,9 @@ class PixelDialogueBox extends FlxSpriteGroup
 	var dialogue:Alphabet;
 	var dialogueList:Array<String> = [];
 
-	var swagDialogue:FlxTypeText;
+	public var swagDialogue:FlxTypeText;
 
-	var dropText:FlxText;
+	public var dropText:FlxText;
 
 	public var finishThing:Void->Void;
 	public var nextDialogueThing:Void->Void = null;
@@ -157,7 +157,7 @@ class PixelDialogueBox extends FlxSpriteGroup
 			dropText.color = FlxColor.BLACK;
 		}
 
-		dropText.text = swagDialogue.text;
+		//dropText.text = swagDialogue.text;
 
 		if (box.animation.curAnim != null)
 		{
@@ -292,23 +292,20 @@ class NormalDialogueBox extends FlxSpriteGroup
 	// This is where you add your characters, ez pz
 	function addCharacter(char:FlxSprite, name:String) {
 		switch(name) {
-			case 'bf':
-				char.frames = Paths.getSparrowAtlas('dialogue/BF_Dialogue');
-				char.animation.addByPrefix('talkIdle', 'BFTalk', 24, true); //Dialogue ended
-				char.animation.addByPrefix('talk', 'bftalkloop', 24, true); //During dialogue
-				char.flipX = !char.flipX;
-
-				// THIS IS EXAMPLE!!
-			/*case 'CHAR':
-				char.frames = Paths.getSparrowAtlas('dialogue/FILENAME');
-				char.animation.addByPrefix('talkIdle', 'NAME IN XML', 24, true); //Dialogue ended
-				char.animation.addByPrefix('talk', 'NAME IN XML', 24, true); //During dialogue
-				char.animation.addByPrefix('angryIdle', 'NAME IN XML', 24, true); //Dialogue ended, but CHAR is ANGRY lmao
-				char.animation.addByPrefix('angry', 'NAME IN XML', 24, true); //During dialogue, but CHAR is ANGRY lmao
-				char.animation.addByPrefix('unamusedIdle', 'NAME IN XML', 24, true); //Dialogue ended, but CHAR is UNAMUSED lmao
-				char.animation.addByPrefix('unamused', 'NAME IN XML', 24, true); //During dialogue, but CHAR is UNAMUSED lmao
-				char.y -= 140;*/
-				// Sample is by Xale, Script is by ShadowMario
+			case 'wn':
+				char.frames = Paths.getSparrowAtlas('dialogue/Dialogues');
+				char.animation.addByPrefix('talkIdle', 'nope', 24, true); 
+				char.animation.addByPrefix('talk', 'nope', 24, true);
+				char.animation.addByPrefix('bf', 'bf', 24, true);
+				char.animation.addByPrefix('bfIdle', 'bf', 24, true);
+				char.animation.addByPrefix('gf', 'gf', 24, true);
+				char.animation.addByPrefix('gfIdle', 'gf', 24, true);
+				char.animation.addByPrefix('survie', 'survie', 24, true); 
+				char.animation.addByPrefix('survieIdle', 'survie', 24, true); 
+				char.animation.addByPrefix('wonder', 'wonder', 24, true); 
+				char.animation.addByPrefix('wonderIdle', 'wonder', 24, true); 
+				char.animation.addByPrefix('wn', 'wn', 24, true); 
+				char.animation.addByPrefix('wnIdle', 'wn', 24, true); 
 		}
 		char.animation.play('talkIdle', true);
 	}
