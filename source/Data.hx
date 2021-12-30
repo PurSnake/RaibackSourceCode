@@ -20,7 +20,7 @@ class EngineData
 
 class ClientPrefs {
 	public static var fuckcrazy:Bool = false;
-        public static var downScroll:Bool = false;
+    public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var showFPS:Bool = true;
 	public static var flashing:Bool = true;
@@ -103,6 +103,11 @@ class ClientPrefs {
 	}
 
 	public static function loadPrefs() {
+		if(FlxG.save.data.fuckcrazy != null) {
+			fuckcrazy = FlxG.save.data.fuckcrazy;
+		}
+		
+
 		if(FlxG.save.data.downScroll != null) {
 			downScroll = FlxG.save.data.downScroll;
 		}
