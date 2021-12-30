@@ -1,0 +1,4 @@
+wn:bf
+:0:talk:0.05:0:It looks like it's getting dark...
+:0:talk:0.05:1:...we should hurry up and finish this
+:0:bf:0.05:0:Beep
