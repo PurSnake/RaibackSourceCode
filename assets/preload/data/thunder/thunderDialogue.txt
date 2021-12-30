@@ -1,4 +1,4 @@
 wn:bf
-:0:wn:0.05:0:It's night now, which means I need to \n be somewhere in time 
-:0:wn:0.05:1:I'll have to give it my all
-:0:wn:0.05:0:get ready...
+:0:wn:0.05:0:One song wasn't enough for you?
+:0:bf:0.05:1:Boop
+:0:wn:0.05:0:Well, I've had enough for one more
