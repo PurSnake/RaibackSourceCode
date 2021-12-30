@@ -3229,7 +3229,7 @@ class PlayState extends MusicBeatState
 				transOut = FlxTransitionableState.defaultTransOut;
 
 				
-				if (SONG.song.toLowerCase() == 'storm')
+				if (SONG.song.toLowerCase() == 'thunder')
 				{
 					var video:MP4Handler = new MP4Handler();
 						video.playMP4(Paths.video('endStormCutscene'), new MainMenuState());
